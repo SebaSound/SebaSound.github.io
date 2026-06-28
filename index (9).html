@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastián Suárez-Solís Rodríguez — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+    --bg4: #222222;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --text: #f0ede8;
+    --text2: #9a9690;
+    --text3: #6b6865;
+    --accent: #c8a96e;
+    --accent2: #9e7f45;
+    --accent-dim: rgba(200,169,110,0.12);
+    --red: #e05c5c;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+
+  .lang-btn:hover, .lang-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    padding-top: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent2); }
+
+  .btn-secondary {
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-photo {
+    position: absolute;
+    right: 2.5rem;
+    width: 320px;
+    height: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--bg3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-photo-placeholder svg {
+    width: 48px;
+    height: 48px;
+    color: var(--text3);
+  }
+
+  .hero-photo-placeholder span {
+    font-size: 12px;
+    color: var(--text3);
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  /* ABOUT */
+  #about {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text2);
+    margin-bottom: 1rem;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .skill-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .skill-desc {
+    font-size: 12px;
+    color: var(--text3);
+  }
+
+  /* PROJECT CARDS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+
+  .project-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-thumb-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .project-thumb-placeholder svg {
+    width: 36px;
+    height: 36px;
+    color: var(--text3);
+  }
+
+  .project-thumb-placeholder span {
+    font-size: 11px;
+    color: var(--text3);
+  }
+
+  .play-btn {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(200,169,110,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .play-btn svg {
+    width: 20px;
+    height: 20px;
+    color: #0a0a0a;
+    margin-left: 3px;
+  }
+
+  .project-card:hover .play-btn { opacity: 1; }
+
+  .project-info {
+    padding: 1.25rem;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid rgba(200,169,110,0.2);
+  }
+
+  .tag-type {
+    background: var(--bg3);
+    color: var(--text3);
+    border-color: var(--border);
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-role {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-meta {
+    font-size: 12px;
+    color: var(--text3);
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .project-link {
+    margin-left: auto;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
+  /* VIMEO EMBED */
+  .vimeo-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .vimeo-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+  .vimeo-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    background: #000;
+  }
+  .vimeo-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  /* EMPTY STATE */
+  .empty-card {
+    background: var(--bg2);
+    border: 1px dashed var(--border2);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    grid-column: 1 / -1;
+  }
+
+  .empty-card p {
+    color: var(--text3);
+    font-size: 14px;
+    margin-top: 0.5rem;
+  }
+
+  /* AUDIO SECTION */
+  .audio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .audio-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .audio-card:hover { border-color: var(--border2); }
+
+  .audio-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .audio-poster {
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
+    background: var(--bg3);
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .audio-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .audio-poster svg {
+    width: 28px;
+    height: 28px;
+    color: var(--text3);
+  }
+
+  .audio-info { flex: 1; }
+
+  .audio-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .audio-role {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .audio-sub {
+    font-size: 12px;
+    color: var(--text3);
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 0.75rem;
+    accent-color: var(--accent);
+  }
+
+  audio::-webkit-media-controls-panel {
+    background: var(--bg3);
+  }
+
+  .audio-placeholder {
+    margin-top: 0.75rem;
+    background: var(--bg3);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 12px;
+    color: var(--text3);
+    text-align: center;
+  }
+
+  /* CONTACT */
+  #contact {
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .contact-text p {
+    color: var(--text2);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s;
+    font-size: 14px;
+  }
+
+  .contact-link:hover { border-color: var(--accent); }
+
+  .contact-link-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text3);
+    font-size: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    section { padding: 3rem 1.25rem; }
+    .hero { padding: 0 1.25rem; padding-top: 60px; }
+    .hero-photo { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .audio-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  /* HIDDEN LANG */
+  [data-lang] { display: none; }
+  [data-lang].visible { display: block; }
+  span[data-lang].visible { display: inline; }
+
+  /* SCROLL BEHAVIOR */
+  html { scroll-behavior: smooth; }
+
+  /* ADMIN PANEL */
+  .admin-trigger {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    color: var(--text3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+  }
+  .admin-trigger:hover { border-color: var(--accent); color: var(--accent); }
+
+  .admin-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+  }
+  .admin-overlay.open { display: flex; }
+
+  .admin-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    width: min(680px, 96vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .admin-panel h2 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .admin-panel .admin-subtitle {
+    font-size: 13px;
+    color: var(--text3);
+    margin-bottom: 2rem;
+  }
+
+  .admin-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: var(--text3);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px;
+  }
+  .admin-close:hover { color: var(--text); }
+
+  .admin-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+  }
+
+  .admin-tab {
+    background: none;
+    border: none;
+    color: var(--text3);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+  }
+  .admin-tab:hover { color: var(--text); }
+  .admin-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .admin-section { display: none; }
+  .admin-section.active { display: block; }
+
+  .admin-field {
+    margin-bottom: 1.25rem;
+  }
+
+  .admin-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+  }
+
+  .admin-field textarea,
+  .admin-field input[type="text"],
+  .admin-field input[type="password"] {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 0.75rem 1rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .admin-field textarea:focus,
+  .admin-field input:focus {
+    border-color: var(--accent);
+  }
+
+  .admin-field textarea { min-height: 90px; }
+
+  .admin-lang-tabs {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .admin-lang-tab {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text3);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .admin-lang-tab.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+  .admin-lang-field { display: none; }
+  .admin-lang-field.active { display: block; }
+
+  .edu-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+
+  .edu-item-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .edu-remove {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--text3);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px;
+    line-height: 1;
+  }
+  .edu-remove:hover { color: var(--red); }
+
+  .btn-add-edu {
+    background: none;
+    border: 1px dashed var(--border2);
+    color: var(--text3);
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font-body);
+    transition: all 0.2s;
+    margin-bottom: 1.5rem;
+  }
+  .btn-add-edu:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn-save {
+    background: var(--accent);
+    color: #0a0a0a;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: background 0.2s;
+  }
+  .btn-save:hover { background: var(--accent2); }
+
+  .save-msg {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 13px;
+    color: #6dbf8a;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .save-msg.show { opacity: 1; }
+
+  /* EDUCATION DISPLAY */
+  .edu-display {
+    margin-top: 2.5rem;
+  }
+
+  .edu-display-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .edu-entry {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .edu-year {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 80px;
+    padding-top: 2px;
+  }
+
+  .edu-details {}
+  .edu-degree {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .edu-school {
+    font-size: 13px;
+    color: var(--text3);
+  }
+
+  /* LOGIN */
+  .admin-login { display: block; }
+  .admin-content { display: none; }
+  .admin-login.hidden { display: none; }
+  .admin-content.visible { display: block; }
+
+  .login-error {
+    font-size: 13px;
+    color: var(--red);
+    margin-top: 0.5rem;
+    display: none;
+  }
+  .login-error.show { display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo" id="nav-name">Sebastián Suárez-Solís Rodríguez</a>
+  <ul class="nav-links">
+    <li><a href="#about"><span data-lang="es" class="visible">Perfil</span><span data-lang="en" class="">Profile</span><span data-lang="ca" class="">Perfil</span></a></li>
+    <li><a href="#audiovisual"><span data-lang="es" class="visible">Audiovisual</span><span data-lang="en" class="">Audiovisual</span><span data-lang="ca" class="">Audiovisual</span></a></li>
+    <li><a href="#live"><span data-lang="es" class="visible">En Vivo</span><span data-lang="en" class="">Live</span><span data-lang="ca" class="">En Directe</span></a></li>
+    <li><a href="#contact"><span data-lang="es" class="visible">Contacto</span><span data-lang="en" class="">Contact</span><span data-lang="ca" class="">Contacte</span></a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ca')">CA</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span data-lang="es" class="visible">Técnico de Sonido</span>
+      <span data-lang="en" class="">Sound Engineer</span>
+      <span data-lang="ca" class="">Tècnic de So</span>
+    </div>
+    <h1 id="hero-name">Sebastián Suárez-Solís Rodríguez</h1>
+    <p class="hero-desc" id="hero-desc-display">
+      <span data-lang="es" class="visible" id="hero-desc-es"></span>
+      <span data-lang="en" id="hero-desc-en" class=""></span>
+      <span data-lang="ca" id="hero-desc-ca" class=""></span>
+    </p>
+    <div class="hero-cta">
+      <a href="#audiovisual" class="btn-primary">
+        <span data-lang="es" class="visible">Ver trabajos</span>
+        <span data-lang="en" class="">See work</span>
+        <span data-lang="ca" class="">Veure treballs</span>
+      </a>
+      <a href="#contact" class="btn-secondary">
+        <span data-lang="es" class="visible">Contactar</span>
+        <span data-lang="en" class="">Get in touch</span>
+        <span data-lang="ca" class="">Contactar</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <!-- Reemplaza este bloque por <img src="tu-foto.jpg" alt="Tu nombre"> cuando tengas la foto -->
+    <div class="hero-photo-placeholder">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+      </svg>
+      <span>
+        <span data-lang="es" class="visible">Foto próximamente</span>
+        <span data-lang="en" class="">Photo coming soon</span>
+        <span data-lang="ca" class="">Foto pròximament</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">01</span>
+    <h2 class="section-title">
+      <span data-lang="es" class="visible">Perfil</span>
+      <span data-lang="en" class="">Profile</span>
+      <span data-lang="ca" class="">Perfil</span>
+    </h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <div class="about-text" id="bio-display"></div>
+      <div class="edu-display" id="edu-display" style="display: block;">
+        <div class="edu-display-title">
+          <span data-lang="es" class="visible">Formación</span>
+          <span data-lang="en" class="">Education</span>
+          <span data-lang="ca" class="">Formació</span>
+        </div>
+        <div class="edu-list" id="edu-list"><div class="edu-entry">
+      <div class="edu-year">2024 – 2026</div>
+      <div class="edu-details">
+        <div class="edu-degree">Técnico de sonido para audiovisuales</div>
+        <div class="edu-school">Centre Villar</div>
+      </div>
+    </div></div>
+      </div>
+    </div>
+    <div class="about-skills">
+      <div class="skill-item">
+        <div class="skill-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path></svg>
+        </div>
+        <div>
+          <div class="skill-name"><span data-lang="es" class="visible">Grabación y captación</span><span data-lang="en" class="">Recording</span><span data-lang="ca" class="">Enregistrament i captació</span></div>
+          <div class="skill-desc"><span data-lang="es" class="visible">Localizaciones, estudio, campo</span><span data-lang="en" class="">On location, studio, field</span><span data-lang="ca" class="">Localitzacions, estudi, camp</span></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"></path></svg>
+        </div>
+        <div>
+          <div class="skill-name"><span data-lang="es" class="visible">Diseño de sonido</span><span data-lang="en" class="">Sound design</span><span data-lang="ca" class="">Disseny de so</span></div>
+          <div class="skill-desc"><span data-lang="es" class="visible">SFX, ambientes, foley</span><span data-lang="en" class="">SFX, atmospheres, foley</span><span data-lang="ca" class="">SFX, ambients, foley</span></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"></path></svg>
+        </div>
+        <div>
+          <div class="skill-name"><span data-lang="es" class="visible">Mezcla y masterización</span><span data-lang="en" class="">Mixing &amp; mastering</span><span data-lang="ca" class="">Mescla i masterització</span></div>
+          <div class="skill-desc"><span data-lang="es" class="visible">Cine, publicidad, música</span><span data-lang="en" class="">Film, advertising, music</span><span data-lang="ca" class="">Cinema, publicitat, música</span></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path></svg>
+        </div>
+        <div>
+          <div class="skill-name"><span data-lang="es" class="visible">Sonido en vivo</span><span data-lang="en" class="">Live sound</span><span data-lang="ca" class="">So en directe</span></div>
+          <div class="skill-desc"><span data-lang="es" class="visible">FOH, monitores, teatro</span><span data-lang="en" class="">FOH, monitors, theatre</span><span data-lang="ca" class="">FOH, monitors, teatre</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIOVISUAL -->
+<section id="audiovisual">
+  <div class="section-header">
+    <span class="section-label">02</span>
+    <h2 class="section-title">
+      <span data-lang="es" class="visible">Trabajos Audiovisuales</span>
+      <span data-lang="en" class="">Audiovisual Work</span>
+      <span data-lang="ca" class="">Treballs Audiovisuals</span>
+    </h2>
+  </div>
+
+  <!-- CORTOMETRAJES -->
+  <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;">
+    <span data-lang="es" class="visible">Cortometrajes</span>
+    <span data-lang="en" class="">Short films</span>
+    <span data-lang="ca" class="">Curtmetratges</span>
+  </h3>
+  <div class="projects-grid" style="margin-bottom: 3.5rem;">
+    <!-- EJEMPLO: Copia este bloque para cada cortometraje -->
+    <!--
+    <div class="project-card" onclick="window.open('URL-DEL-VIDEO', '_blank')">
+      <div class="project-thumb">
+        <img src="poster.jpg" alt="Título">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">Diseño de sonido</span>
+          <span class="tag tag-type">Cortometraje</span>
+        </div>
+        <div class="project-title">Título del corto</div>
+        <div class="project-role">Diseño de sonido · Mezcla</div>
+        <div class="project-meta">
+          <span>2024</span>
+          <span>Dir. Nombre del director</span>
+          <a href="URL" class="project-link" onclick="event.stopPropagation()">
+            Ver ↗
+          </a>
+        </div>
+      </div>
+    </div>
+    -->
+    <div class="vimeo-card">
+      <div class="vimeo-wrapper">
+        <iframe src="https://player.vimeo.com/video/1205261066?title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">Sound Assistant</span>
+          <span class="tag tag-type">Cortometraje</span>
+        </div>
+        <div class="project-title">Life among Death</div>
+        <div class="project-role">Sound Assistant</div>
+        <div class="project-meta">
+          <span>2025</span>
+          <span>Dir. George McHugh</span>
+          <a href="https://vimeo.com/1205261066" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver en Vimeo ↗</a>
+        </div>
+      </div>
+    </div>
+  <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;">
+    <span data-lang="es" class="visible">Largometrajes y Documentales</span>
+    <span data-lang="en" class="">Feature films &amp; Documentaries</span>
+    <span data-lang="ca" class="">Llargmetratges i Documentals</span>
+  </h3>
+  <div class="projects-grid" style="margin-bottom: 3.5rem;">
+    <div class="empty-card">
+      <p>
+        <span data-lang="es" class="visible">Los largometrajes y documentales se añadirán próximamente.</span>
+        <span data-lang="en" class="">Feature films and documentaries will be added soon.</span>
+        <span data-lang="ca" class="">Els llargmetratges i documentals s'afegiran pròximament.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- PUBLICIDAD -->
+  <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;">
+    <span data-lang="es" class="visible">Publicidad</span>
+    <span data-lang="en" class="">Advertising</span>
+    <span data-lang="ca" class="">Publicitat</span>
+  </h3>
+  <div class="projects-grid">
+    <div class="empty-card">
+      <p>
+        <span data-lang="es" class="visible">Los trabajos de publicidad se añadirán próximamente.</span>
+        <span data-lang="en" class="">Advertising work will be added soon.</span>
+        <span data-lang="ca" class="">Els treballs de publicitat s'afegiran pròximament.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE / EN VIVO -->
+<section id="live">
+  <div class="section-header">
+    <span class="section-label">03</span>
+    <h2 class="section-title">
+      <span data-lang="es" class="visible">Música en Vivo y Teatro</span>
+      <span data-lang="en" class="">Live Music &amp; Theatre</span>
+      <span data-lang="ca" class="">Música en Directe i Teatre</span>
+    </h2>
+  </div>
+
+  <!-- CONCIERTOS -->
+  <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;">
+    <span data-lang="es" class="visible">Conciertos</span>
+    <span data-lang="en" class="">Concerts</span>
+    <span data-lang="ca" class="">Concerts</span>
+  </h3>
+  <div class="audio-grid" style="margin-bottom: 3.5rem;">
+    <!-- EJEMPLO: Copia este bloque para cada concierto -->
+    <!--
+    <div class="audio-card">
+      <div class="audio-header">
+        <div class="audio-poster">
+          <img src="poster-concierto.jpg" alt="Nombre artista">
+        </div>
+        <div class="audio-info">
+          <div class="audio-title">Nombre del artista / banda</div>
+          <div class="audio-role">FOH Engineer</div>
+          <div class="audio-sub">Nombre del venue · 2024</div>
+        </div>
+      </div>
+      <audio controls src="audio.mp3"></audio>
+    </div>
+    -->
+    <div class="empty-card">
+      <p>
+        <span data-lang="es" class="visible">Los conciertos se añadirán próximamente.</span>
+        <span data-lang="en" class="">Concerts will be added soon.</span>
+        <span data-lang="ca" class="">Els concerts s'afegiran pròximament.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- TEATRO -->
+  <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;">
+    <span data-lang="es" class="visible">Teatro</span>
+    <span data-lang="en" class="">Theatre</span>
+    <span data-lang="ca" class="">Teatre</span>
+  </h3>
+  <div class="audio-grid">
+    <!-- EJEMPLO: Copia este bloque para cada obra de teatro -->
+    <!--
+    <div class="audio-card">
+      <div class="audio-header">
+        <div class="audio-poster">
+          <img src="poster-obra.jpg" alt="Nombre obra">
+        </div>
+        <div class="audio-info">
+          <div class="audio-title">Nombre de la obra</div>
+          <div class="audio-role">Técnico de Sonido</div>
+          <div class="audio-sub">Nombre del teatro · 2024</div>
+        </div>
+      </div>
+      <audio controls src="audio.mp3"></audio>
+    </div>
+    -->
+    <div class="empty-card">
+      <p>
+        <span data-lang="es" class="visible">Las obras de teatro se añadirán próximamente.</span>
+        <span data-lang="en" class="">Theatre productions will be added soon.</span>
+        <span data-lang="ca" class="">Les obres de teatre s'afegiran pròximament.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-label">04</span>
+    <h2 class="section-title">
+      <span data-lang="es" class="visible">Contacto</span>
+      <span data-lang="en" class="">Contact</span>
+      <span data-lang="ca" class="">Contacte</span>
+    </h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-text">
+      <h3>
+        <span data-lang="es" class="visible">¿Tienes un proyecto?</span>
+        <span data-lang="en" class="">Got a project?</span>
+        <span data-lang="ca" class="">Tens un projecte?</span>
+      </h3>
+      <p>
+        <span data-lang="es" class="visible">Estoy disponible para proyectos audiovisuales, espectáculos en vivo y cualquier trabajo donde el sonido sea protagonista. Escríbeme y hablamos.</span>
+        <span data-lang="en" class="">Available for audiovisual projects, live shows, and any work where sound takes centre stage. Get in touch and let's talk.</span>
+        <span data-lang="ca" class="">Estic disponible per a projectes audiovisuals, espectacles en directe i qualsevol treball on el so sigui protagonista. Escriu-me i parlem.</span>
+      </p>
+    </div>
+    <div class="contact-links" id="contact-links-display"><div class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg></div>Barcelona</div><a href="tel:+34 612 456 168" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path></svg></div>+34 612 456 168</a><a href="mailto:sebasoundwork@gmail.com" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path></svg></div>sebasoundwork@gmail.com</a><div class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></div>LinkedIn</div><a href="https://www.imdb.com/es-es/user/p.xjdjunxg5qb6rh526vnzjqhu5y?ref_=upe_nv_profile" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M14.31 9.588v.005c-.077-.048-1.051-.051-1.051-.051V14.4s.974-.017 1.051-.016c.8.013 1.248-.556 1.248-1.518V11.09c0-.847-.387-1.502-1.248-1.502zm-4.31-.002V14.4H12V9.586H10zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.875 13.017c0 1.812-1.2 2.869-3.13 2.869H8.25V8.113h6.495c1.93 0 3.13 1.057 3.13 2.869v2.035z"></path></svg></div>IMDb</a><a href="https://vimeo.com/user260456112" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 12.5C4.603 9.913 3.83 8.619 3 8.619c-.174 0-.783.367-1.833 1.104L0 8.39c1.155-1.012 2.29-2.075 3.395-3.04 1.534-1.33 2.685-2.028 3.454-2.086 1.812-.175 2.926.95 3.346 3.334.451 2.586.765 4.194.941 4.821.523 2.379 1.098 3.564 1.728 3.564.487 0 1.22-.77 2.202-2.313.977-1.543 1.504-2.718 1.575-3.522.14-1.334-.385-2.003-1.575-2.003-.561 0-1.137.129-1.733.386 1.151-3.771 3.349-5.601 6.593-5.487 2.406.037 3.537 1.636 3.351 4.372z"></path></svg></div>Vimeo</a><a href="https://www.youtube.com/channel/UCUjU0iaGtH_TEn2GVqGUy_Q" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"></path></svg></div>YouTube</a><a href="https://soundcloud.com/sebas-suarez-solis-rodriguez" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M1.175 12.225c-.017 0-.034.001-.051.002A1.074 1.074 0 000 13.36v.3c0 .596.48 1.078 1.073 1.078h.102V12.26a1.08 1.08 0 00-.000-.035zm2.01-.69c-.068 0-.137.007-.203.02v3.223h.203a.9.9 0 00.9-.9v-1.443a.9.9 0 00-.9-.9zm3.593-.45c-.195 0-.378.053-.537.143v3.51h1.075V11.23a1.075 1.075 0 00-.538-.145zm2.697-.9c-.6 0-1.087.488-1.087 1.088v3.465h2.175V11.274c0-.6-.488-1.088-1.088-1.088zm3.03-.9c-.6 0-1.088.488-1.088 1.088v4.365h2.175V10.374c0-.6-.487-1.088-1.087-1.088zm2.925-.225c-.6 0-1.088.488-1.088 1.088v4.59h2.175V10.149c0-.6-.487-1.087-1.087-1.087zm3.157 1.35c-.172-.828-.9-1.425-1.762-1.35v5.627h3.487c.825 0 1.5-.675 1.5-1.5v-1.05c0-1.5-1.35-2.85-3.225-2.727z"></path></svg></div>SoundCloud</a></div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 SebaSound</span>
+  <span>
+    <span data-lang="es" class="visible">Técnico de Sonido — Barcelona</span>
+    <span data-lang="en" class="">Sound Engineer — Barcelona</span>
+    <span data-lang="ca" class="">Tècnic de So — Barcelona</span>
+  </span>
+</footer>
+
+<!-- ADMIN TRIGGER -->
+<button class="admin-trigger" onclick="openAdmin()" title="Administrar portfolio">
+  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z"></path>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+  </svg>
+</button>
+
+<!-- ADMIN OVERLAY -->
+<div class="admin-overlay open" id="adminOverlay" onclick="closeAdminIfOutside(event)">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="closeAdmin()">×</button>
+
+    <!-- LOGIN -->
+    <div class="admin-login hidden" id="adminLogin">
+      <h2>Panel de administración</h2>
+      <p class="admin-subtitle">Introduce la contraseña para editar tu portfolio.</p>
+      <div class="admin-field">
+        <label>Contraseña</label>
+        <input type="password" id="adminPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter') checkPassword()">
+        <div class="login-error" id="loginError">Contraseña incorrecta.</div>
+      </div>
+      <button class="btn-save" onclick="checkPassword()">Entrar</button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="admin-content visible" id="adminContent">
+      <h2>Editar perfil</h2>
+      <p class="admin-subtitle">Los cambios se guardan en tu navegador y se ven al instante.</p>
+
+      <div class="admin-tabs">
+        <button class="admin-tab" onclick="switchAdminTab('nombre', this)">Nombre</button>
+        <button class="admin-tab" onclick="switchAdminTab('bio', this)">Bio</button>
+        <button class="admin-tab" onclick="switchAdminTab('edu', this)">Formación</button>
+        <button class="admin-tab active" onclick="switchAdminTab('contacto', this)">Contacto</button>
+      </div>
+
+      <!-- NOMBRE TAB -->
+      <div class="admin-section" id="admin-nombre">
+        <div class="admin-field">
+          <label>Nombre visible en la web</label>
+          <input type="text" id="site-name" placeholder="SebaSound" maxlength="40">
+        </div>
+        <div class="admin-field" style="margin-top:1.25rem;">
+          <label>Descripción debajo del nombre — ES</label>
+          <textarea id="hero-desc-input-es" placeholder="Especialista en diseño de sonido..." style="min-height:70px;"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Descripción debajo del nombre — EN</label>
+          <textarea id="hero-desc-input-en" placeholder="Specialist in sound design..." style="min-height:70px;"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Descripció sota el nom — CA</label>
+          <textarea id="hero-desc-input-ca" placeholder="Especialista en disseny de so..." style="min-height:70px;"></textarea>
+        </div>
+        <p style="font-size:12px;color:var(--text3);margin-bottom:1.25rem;">Aparecen en la barra de navegación, el título principal y la descripción de la portada.</p>
+        <button class="btn-save" onclick="saveName()">Guardar</button>
+        <span class="save-msg" id="name-save-msg">¡Guardado!</span>
+      </div>
+
+      <!-- BIO TAB -->
+      <div class="admin-section" id="admin-bio">
+        <div class="admin-lang-tabs">
+          <button class="admin-lang-tab active" onclick="switchBioLang('es', this)">ES</button>
+          <button class="admin-lang-tab" onclick="switchBioLang('en', this)">EN</button>
+          <button class="admin-lang-tab" onclick="switchBioLang('ca', this)">CA</button>
+        </div>
+        <div class="admin-lang-field active" id="bio-field-es">
+          <div class="admin-field">
+            <label>Descripción en Español</label>
+            <textarea id="bio-es" placeholder="Escribe tu bio en español..."></textarea>
+          </div>
+        </div>
+        <div class="admin-lang-field" id="bio-field-en">
+          <div class="admin-field">
+            <label>Description in English</label>
+            <textarea id="bio-en" placeholder="Write your bio in English..."></textarea>
+          </div>
+        </div>
+        <div class="admin-lang-field" id="bio-field-ca">
+          <div class="admin-field">
+            <label>Descripció en Català</label>
+            <textarea id="bio-ca" placeholder="Escriu la teva bio en català..."></textarea>
+          </div>
+        </div>
+        <button class="btn-save" onclick="saveBio()">Guardar bio</button>
+        <span class="save-msg" id="bio-save-msg">¡Guardado!</span>
+      </div>
+
+      <!-- EDUCATION TAB -->
+      <div class="admin-section" id="admin-edu">
+        <div id="edu-items-admin"><div class="edu-item" data-index="0">
+    <button class="edu-remove" onclick="removeEduItem(0)">×</button>
+    <div class="edu-item-grid">
+      <div class="admin-field">
+        <label>Título / Degree</label>
+        <input type="text" class="edu-degree-input" value="Técnico de sonido para audiovisuales" placeholder="Grado en Producción de Sonido">
+      </div>
+      <div class="admin-field">
+        <label>Centro / School</label>
+        <input type="text" class="edu-school-input" value="Centre Villar" placeholder="Escola Superior de Cinema">
+      </div>
+      <div class="admin-field">
+        <label>Año inicio</label>
+        <input type="text" class="edu-start-input" value="2024" placeholder="2018">
+      </div>
+      <div class="admin-field">
+        <label>Año fin</label>
+        <input type="text" class="edu-end-input" value="2026" placeholder="2022">
+      </div>
+    </div>
+  </div></div>
+        <button class="btn-add-edu" onclick="addEduItem()">+ Añadir estudio</button>
+        <button class="btn-save" onclick="saveEdu()">Guardar formación</button>
+        <span class="save-msg" id="edu-save-msg">¡Guardado!</span>
+      </div>
+
+      <!-- CONTACTO TAB -->
+      <div class="admin-section active" id="admin-contacto">
+        <div class="admin-field">
+          <label>Email</label>
+          <input type="text" id="contact-email" placeholder="tu@email.com">
+        </div>
+        <div class="admin-field">
+          <label>Teléfono</label>
+          <input type="text" id="contact-phone" placeholder="+34 600 000 000">
+        </div>
+        <div class="admin-field">
+          <label>Ciudad</label>
+          <input type="text" id="contact-city" placeholder="Barcelona">
+        </div>
+        <div class="admin-field">
+          <label>LinkedIn (URL completa)</label>
+          <input type="text" id="contact-linkedin" placeholder="https://linkedin.com/in/tuperfil">
+        </div>
+        <div class="admin-field">
+          <label>IMDb (URL completa)</label>
+          <input type="text" id="contact-imdb" placeholder="https://imdb.com/name/tu-id">
+        </div>
+        <div class="admin-field">
+          <label>Vimeo (URL completa)</label>
+          <input type="text" id="contact-vimeo" placeholder="https://vimeo.com/tuperfil">
+        </div>
+        <div class="admin-field">
+          <label>YouTube (URL completa)</label>
+          <input type="text" id="contact-youtube" placeholder="https://youtube.com/@tucanal">
+        </div>
+        <div class="admin-field">
+          <label>SoundCloud (URL completa)</label>
+          <input type="text" id="contact-soundcloud" placeholder="https://soundcloud.com/tuperfil">
+        </div>
+        <p style="font-size:12px;color:var(--text3);margin-bottom:1.25rem;">Deja en blanco los que no quieras mostrar.</p>
+        <button class="btn-save" onclick="saveContact()">Guardar contacto</button>
+        <span class="save-msg" id="contact-save-msg">¡Guardado!</span>
+      </div>
+
+      <!-- EXPORTAR -->
+      <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+        <p style="font-size:13px;color:var(--text2);margin-bottom:1rem;">Cuando hayas guardado todos los cambios, exporta el portfolio para que se vea igual en cualquier dispositivo.</p>
+        <button class="btn-save" onclick="exportSite()" style="background:var(--bg3);border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;gap:0.5rem;">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+          Exportar y descargar index.html
+        </button>
+        <p style="font-size:11px;color:var(--text3);margin-top:0.75rem;">Sube ese archivo a GitHub para que los cambios sean visibles para todo el mundo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONTRASEÑA ──────────────────────────────────────────────
+// Cambia 'sebasound2025' por la contraseña que quieras usar
+const ADMIN_PASSWORD = 'sebasound2025';
+
+function checkPassword() {
+  const val = document.getElementById('adminPassword').value;
+  if (val === ADMIN_PASSWORD) {
+    document.getElementById('adminLogin').classList.add('hidden');
+    document.getElementById('adminContent').classList.add('visible');
+    loadAdminData();
+  } else {
+    document.getElementById('loginError').classList.add('show');
+  }
+}
+
+// ── PANEL ───────────────────────────────────────────────────
+function openAdmin() {
+  document.getElementById('adminOverlay').classList.add('open');
+  document.getElementById('adminPassword').value = '';
+  document.getElementById('loginError').classList.remove('show');
+  document.getElementById('adminLogin').classList.remove('hidden');
+  document.getElementById('adminContent').classList.remove('visible');
+}
+
+function closeAdmin() {
+  document.getElementById('adminOverlay').classList.remove('open');
+}
+
+function closeAdminIfOutside(e) {
+  if (e.target === document.getElementById('adminOverlay')) closeAdmin();
+}
+
+// ── TABS ────────────────────────────────────────────────────
+function switchAdminTab(tab, btn) {
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('admin-' + tab).classList.add('active');
+}
+
+function switchBioLang(lang, btn) {
+  document.querySelectorAll('.admin-lang-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.admin-lang-field').forEach(f => f.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('bio-field-' + lang).classList.add('active');
+}
+
+// ── NOMBRE ───────────────────────────────────────────────────
+const DEFAULT_TAGLINE = {
+  es: 'Especialista en diseño de sonido, mezcla y captación para cine, teatro y música en vivo. Comprometido con que cada proyecto suene como merece.',
+  en: 'Specialist in sound design, mixing, and recording for film, theatre, and live music. Committed to making every project sound the way it deserves.',
+  ca: 'Especialista en disseny de so, mescla i captació per a cinema, teatre i música en directe. Compromès perquè cada projecte soni com es mereix.'
+};
+
+function renderName() {
+  const name = localStorage.getItem('seba_name') || 'SebaSound';
+  document.getElementById('nav-name').textContent = name;
+  document.getElementById('hero-name').textContent = name;
+  document.title = name + ' — Portfolio';
+
+  const tagline = JSON.parse(localStorage.getItem('seba_tagline') || 'null') || DEFAULT_TAGLINE;
+  ['es','en','ca'].forEach(lang => {
+    const el = document.getElementById('hero-desc-' + lang);
+    if (el) el.textContent = tagline[lang] || '';
+  });
+}
+
+function saveName() {
+  const val = document.getElementById('site-name').value.trim();
+  if (val) localStorage.setItem('seba_name', val);
+
+  const tagline = {
+    es: document.getElementById('hero-desc-input-es').value.trim(),
+    en: document.getElementById('hero-desc-input-en').value.trim(),
+    ca: document.getElementById('hero-desc-input-ca').value.trim()
+  };
+  localStorage.setItem('seba_tagline', JSON.stringify(tagline));
+
+  renderName();
+  flashMsg('name-save-msg');
+}
+
+// ── BIO ─────────────────────────────────────────────────────
+const DEFAULT_BIO = {
+  es: 'Técnico de sonido con experiencia en producción audiovisual, teatro y música en vivo. Mi trabajo abarca desde la grabación y diseño de sonido hasta la mezcla final, con especial atención al detalle y a la narrativa sonora de cada proyecto.\n\nHe colaborado en cortos, largometrajes, documentales, obras de teatro y conciertos, siempre con el objetivo de que el sonido sea un elemento expresivo y no solo técnico.',
+  en: 'Sound engineer with experience in audiovisual production, theatre, and live music. My work spans from recording and sound design to final mixing, with particular attention to detail and the sonic narrative of each project.\n\nI have collaborated on short films, feature films, documentaries, theatre productions, and concerts, always aiming for sound to be an expressive element, not just a technical one.',
+  ca: 'Tècnic de so amb experiència en producció audiovisual, teatre i música en directe. El meu treball abasta des de l\'enregistrament i el disseny de so fins a la mescla final, amb especial atenció al detall i a la narrativa sonora de cada projecte.\n\nHe col·laborat en curtmetratges, llargmetratges, documentals, obres de teatre i concerts, sempre amb l\'objectiu que el so sigui un element expressiu i no només tècnic.'
+};
+
+function renderBio() {
+  const saved = JSON.parse(localStorage.getItem('seba_bio') || 'null') || DEFAULT_BIO;
+  const display = document.getElementById('bio-display');
+  display.innerHTML = '';
+  ['es','en','ca'].forEach(lang => {
+    const text = saved[lang] || '';
+    text.split('\n\n').filter(Boolean).forEach(para => {
+      const p = document.createElement('p');
+      p.dataset.lang = lang;
+      if (lang === currentLang) p.classList.add('visible');
+      p.textContent = para;
+      display.appendChild(p);
+    });
+  });
+}
+
+function saveBio() {
+  const bio = {
+    es: document.getElementById('bio-es').value,
+    en: document.getElementById('bio-en').value,
+    ca: document.getElementById('bio-ca').value
+  };
+  localStorage.setItem('seba_bio', JSON.stringify(bio));
+  renderBio();
+  flashMsg('bio-save-msg');
+}
+
+function loadAdminData() {
+  document.getElementById('site-name').value = localStorage.getItem('seba_name') || 'SebaSound';
+  const tagline = JSON.parse(localStorage.getItem('seba_tagline') || 'null') || DEFAULT_TAGLINE;
+  document.getElementById('hero-desc-input-es').value = tagline.es || '';
+  document.getElementById('hero-desc-input-en').value = tagline.en || '';
+  document.getElementById('hero-desc-input-ca').value = tagline.ca || '';
+  const saved = JSON.parse(localStorage.getItem('seba_bio') || 'null') || DEFAULT_BIO;
+  document.getElementById('bio-es').value = saved.es || '';
+  document.getElementById('bio-en').value = saved.en || '';
+  document.getElementById('bio-ca').value = saved.ca || '';
+  const contact = JSON.parse(localStorage.getItem('seba_contact') || '{}');
+  document.getElementById('contact-email').value = contact.email || '';
+  document.getElementById('contact-phone').value = contact.phone || '';
+  document.getElementById('contact-city').value = contact.city || '';
+  document.getElementById('contact-linkedin').value = contact.linkedin || '';
+  document.getElementById('contact-imdb').value = contact.imdb || '';
+  document.getElementById('contact-vimeo').value = contact.vimeo || '';
+  document.getElementById('contact-youtube').value = contact.youtube || '';
+  document.getElementById('contact-soundcloud').value = contact.soundcloud || '';
+  renderEduAdmin();
+}
+
+// ── EDUCACIÓN ────────────────────────────────────────────────
+function getEdu() {
+  return JSON.parse(localStorage.getItem('seba_edu') || '[]');
+}
+
+function renderEduAdmin() {
+  const items = getEdu();
+  const container = document.getElementById('edu-items-admin');
+  container.innerHTML = '';
+  items.forEach((item, i) => {
+    container.appendChild(createEduAdminItem(item, i));
+  });
+}
+
+function createEduAdminItem(item, i) {
+  const div = document.createElement('div');
+  div.className = 'edu-item';
+  div.dataset.index = i;
+  div.innerHTML = `
+    <button class="edu-remove" onclick="removeEduItem(${i})">×</button>
+    <div class="edu-item-grid">
+      <div class="admin-field">
+        <label>Título / Degree</label>
+        <input type="text" class="edu-degree-input" value="${item.degree || ''}" placeholder="Grado en Producción de Sonido">
+      </div>
+      <div class="admin-field">
+        <label>Centro / School</label>
+        <input type="text" class="edu-school-input" value="${item.school || ''}" placeholder="Escola Superior de Cinema">
+      </div>
+      <div class="admin-field">
+        <label>Año inicio</label>
+        <input type="text" class="edu-start-input" value="${item.start || ''}" placeholder="2018">
+      </div>
+      <div class="admin-field">
+        <label>Año fin</label>
+        <input type="text" class="edu-end-input" value="${item.end || ''}" placeholder="2022">
+      </div>
+    </div>
+  `;
+  return div;
+}
+
+function addEduItem() {
+  const items = getEdu();
+  items.push({ degree: '', school: '', start: '', end: '' });
+  localStorage.setItem('seba_edu', JSON.stringify(items));
+  renderEduAdmin();
+}
+
+function removeEduItem(i) {
+  const items = getEdu();
+  items.splice(i, 1);
+  localStorage.setItem('seba_edu', JSON.stringify(items));
+  renderEduAdmin();
+  renderEduDisplay();
+}
+
+function saveEdu() {
+  const adminItems = document.querySelectorAll('#edu-items-admin .edu-item');
+  const items = Array.from(adminItems).map(el => ({
+    degree: el.querySelector('.edu-degree-input').value,
+    school: el.querySelector('.edu-school-input').value,
+    start: el.querySelector('.edu-start-input').value,
+    end: el.querySelector('.edu-end-input').value
+  }));
+  localStorage.setItem('seba_edu', JSON.stringify(items));
+  renderEduDisplay();
+  flashMsg('edu-save-msg');
+}
+
+function renderEduDisplay() {
+  const items = getEdu();
+  const display = document.getElementById('edu-display');
+  const list = document.getElementById('edu-list');
+  list.innerHTML = '';
+  if (items.length === 0) {
+    display.style.display = 'none';
+    return;
+  }
+  display.style.display = 'block';
+  items.forEach(item => {
+    const years = item.start && item.end ? `${item.start} – ${item.end}` : (item.start || item.end || '');
+    const div = document.createElement('div');
+    div.className = 'edu-entry';
+    div.innerHTML = `
+      <div class="edu-year">${years}</div>
+      <div class="edu-details">
+        <div class="edu-degree">${item.degree}</div>
+        <div class="edu-school">${item.school}</div>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+}
+
+// ── CONTACTO ─────────────────────────────────────────────────
+const CONTACT_ICONS = {
+  email: `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>`,
+  phone: `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>`,
+  city: `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>`,
+  linkedin: `<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+  imdb: `<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M14.31 9.588v.005c-.077-.048-1.051-.051-1.051-.051V14.4s.974-.017 1.051-.016c.8.013 1.248-.556 1.248-1.518V11.09c0-.847-.387-1.502-1.248-1.502zm-4.31-.002V14.4H12V9.586H10zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.875 13.017c0 1.812-1.2 2.869-3.13 2.869H8.25V8.113h6.495c1.93 0 3.13 1.057 3.13 2.869v2.035z"/></svg>`,
+  vimeo: `<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 12.5C4.603 9.913 3.83 8.619 3 8.619c-.174 0-.783.367-1.833 1.104L0 8.39c1.155-1.012 2.29-2.075 3.395-3.04 1.534-1.33 2.685-2.028 3.454-2.086 1.812-.175 2.926.95 3.346 3.334.451 2.586.765 4.194.941 4.821.523 2.379 1.098 3.564 1.728 3.564.487 0 1.22-.77 2.202-2.313.977-1.543 1.504-2.718 1.575-3.522.14-1.334-.385-2.003-1.575-2.003-.561 0-1.137.129-1.733.386 1.151-3.771 3.349-5.601 6.593-5.487 2.406.037 3.537 1.636 3.351 4.372z"/></svg>`,
+  youtube: `<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>`,
+  soundcloud: `<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M1.175 12.225c-.017 0-.034.001-.051.002A1.074 1.074 0 000 13.36v.3c0 .596.48 1.078 1.073 1.078h.102V12.26a1.08 1.08 0 00-.000-.035zm2.01-.69c-.068 0-.137.007-.203.02v3.223h.203a.9.9 0 00.9-.9v-1.443a.9.9 0 00-.9-.9zm3.593-.45c-.195 0-.378.053-.537.143v3.51h1.075V11.23a1.075 1.075 0 00-.538-.145zm2.697-.9c-.6 0-1.087.488-1.087 1.088v3.465h2.175V11.274c0-.6-.488-1.088-1.088-1.088zm3.03-.9c-.6 0-1.088.488-1.088 1.088v4.365h2.175V10.374c0-.6-.487-1.088-1.087-1.088zm2.925-.225c-.6 0-1.088.488-1.088 1.088v4.59h2.175V10.149c0-.6-.487-1.087-1.087-1.087zm3.157 1.35c-.172-.828-.9-1.425-1.762-1.35v5.627h3.487c.825 0 1.5-.675 1.5-1.5v-1.05c0-1.5-1.35-2.85-3.225-2.727z"/></svg>`
+};
+
+function renderContact() {
+  const data = JSON.parse(localStorage.getItem('seba_contact') || '{}');
+  const container = document.getElementById('contact-links-display');
+  container.innerHTML = '';
+  const entries = [
+    { key: 'city', href: null, label: data.city },
+    { key: 'phone', href: data.phone ? 'tel:' + data.phone : null, label: data.phone },
+    { key: 'email', href: data.email ? 'mailto:' + data.email : null, label: data.email },
+    { key: 'linkedin', href: data.linkedin, label: 'LinkedIn' },
+    { key: 'imdb', href: data.imdb, label: 'IMDb' },
+    { key: 'vimeo', href: data.vimeo, label: 'Vimeo' },
+    { key: 'youtube', href: data.youtube, label: 'YouTube' },
+    { key: 'soundcloud', href: data.soundcloud, label: 'SoundCloud' }
+  ];
+  let hasAny = false;
+  entries.forEach(({ key, href, label }) => {
+    if (!label) return;
+    hasAny = true;
+    const tag = href ? 'a' : 'div';
+    const attrs = href ? `href="${href}" ${['linkedin','imdb','vimeo','youtube','soundcloud'].includes(key) ? 'target="_blank"' : ''}` : '';
+    container.innerHTML += `<${tag} ${attrs} class="contact-link"><div class="contact-link-icon">${CONTACT_ICONS[key]}</div>${label}</${tag}>`;
+  });
+  if (!hasAny) {
+    container.innerHTML = `<p style="color:var(--text3);font-size:13px;">Añade tu información de contacto desde el panel de administración ⚙</p>`;
+  }
+}
+
+function saveContact() {
+  const data = {
+    email: document.getElementById('contact-email').value.trim(),
+    phone: document.getElementById('contact-phone').value.trim(),
+    city: document.getElementById('contact-city').value.trim(),
+    linkedin: document.getElementById('contact-linkedin').value.trim(),
+    imdb: document.getElementById('contact-imdb').value.trim(),
+    vimeo: document.getElementById('contact-vimeo').value.trim(),
+    youtube: document.getElementById('contact-youtube').value.trim(),
+    soundcloud: document.getElementById('contact-soundcloud').value.trim()
+  };
+  localStorage.setItem('seba_contact', JSON.stringify(data));
+  renderContact();
+  flashMsg('contact-save-msg');
+}
+
+// ── EXPORTAR ─────────────────────────────────────────────────
+function exportSite() {
+  const siteName = localStorage.getItem('seba_name') || 'SebaSound';
+  const tagline = JSON.parse(localStorage.getItem('seba_tagline') || 'null') || DEFAULT_TAGLINE;
+  const bio = JSON.parse(localStorage.getItem('seba_bio') || 'null') || DEFAULT_BIO;
+  const edu = JSON.parse(localStorage.getItem('seba_edu') || '[]');
+  const contact = JSON.parse(localStorage.getItem('seba_contact') || '{}');
+
+  const html = document.documentElement.outerHTML;
+
+  const initScript = `<script>
+(function() {
+  var d = ${JSON.stringify({name: siteName, tagline, bio, edu, contact})};
+  if (!localStorage.getItem('seba_name')) localStorage.setItem('seba_name', d.name);
+  if (!localStorage.getItem('seba_tagline')) localStorage.setItem('seba_tagline', JSON.stringify(d.tagline));
+  if (!localStorage.getItem('seba_bio')) localStorage.setItem('seba_bio', JSON.stringify(d.bio));
+  if (!localStorage.getItem('seba_edu')) localStorage.setItem('seba_edu', JSON.stringify(d.edu));
+  if (!localStorage.getItem('seba_contact')) localStorage.setItem('seba_contact', JSON.stringify(d.contact));
+})();
+<\/script>`;
+
+  const clean = html.replace(/<script>\s*\(function\(\)\s*\{[\s\S]*?\}\)\(\);\s*<\/script>/g, '');
+  const exported = '<!DOCTYPE html>\n' + clean.replace('</body>', initScript + '\n</body>');
+
+  const blob = new Blob([exported], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'index.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ── UTILS ────────────────────────────────────────────────────
+function flashMsg(id) {
+  const el = document.getElementById(id);
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// ── IDIOMA ───────────────────────────────────────────────────
+let currentLang = 'es';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('visible', el.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+(function() {
+  var d = {"name":"Sebastián Suárez-Solís Rodríguez","tagline":{"es":"","en":"","ca":""},"bio":{"es":"","en":"","ca":""},"edu":[{"degree":"Técnico de sonido para audiovisuales","school":"Centre Villar","start":"2024","end":"2026"}],"contact":{"email":"sebasoundwork@gmail.com","phone":"+34 612 456 168","city":"Barcelona","linkedin":"","imdb":"https://www.imdb.com/es-es/user/p.xjdjunxg5qb6rh526vnzjqhu5y?ref_=upe_nv_profile","vimeo":"https://vimeo.com/user260456112","youtube":"https://www.youtube.com/channel/UCUjU0iaGtH_TEn2GVqGUy_Q","soundcloud":"https://soundcloud.com/sebas-suarez-solis-rodriguez"}};
+  if (!localStorage.getItem('seba_name')) localStorage.setItem('seba_name', d.name);
+  if (!localStorage.getItem('seba_tagline')) localStorage.setItem('seba_tagline', JSON.stringify(d.tagline));
+  if (!localStorage.getItem('seba_bio')) localStorage.setItem('seba_bio', JSON.stringify(d.bio));
+  if (!localStorage.getItem('seba_edu')) localStorage.setItem('seba_edu', JSON.stringify(d.edu));
+  if (!localStorage.getItem('seba_contact')) localStorage.setItem('seba_contact', JSON.stringify(d.contact));
+})();
+setLang('es');
+renderName();
+renderBio();
+renderEduDisplay();
+renderContact();
+</script>
+</body></html>
