@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — SebaSound</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --text: #f0ede8;
+    --text2: #9a9690;
+    --text3: #6b6865;
+    --accent: #c8a96e;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lang-switcher {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--accent); color: var(--accent); }
+  .wave-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    height: 80px;
+    margin-bottom: 2.5rem;
+  }
+  .bar { width: 8px; border-radius: 4px; background: var(--accent); opacity: 0.3; }
+  .bar:nth-child(1)  { height: 20px; }
+  .bar:nth-child(2)  { height: 45px; }
+  .bar:nth-child(3)  { height: 70px; }
+  .bar:nth-child(4)  { height: 55px; }
+  .bar:nth-child(5)  { height: 30px; }
+  .bar:nth-child(6)  { height: 4px; opacity: 0.15; }
+  .bar:nth-child(7)  { height: 4px; opacity: 0.15; }
+  .bar:nth-child(8)  { height: 4px; opacity: 0.15; }
+  .bar:nth-child(9)  { height: 20px; }
+  .bar:nth-child(10) { height: 50px; }
+  .bar:nth-child(11) { height: 75px; }
+  .bar:nth-child(12) { height: 60px; }
+  .bar:nth-child(13) { height: 35px; }
+  .code {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 20vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .desc {
+    font-size: 15px;
+    color: var(--text2);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .desc em { color: var(--accent); font-style: normal; font-weight: 500; }
+  .btn {
+    background: var(--accent);
+    color: #0a0a0a;
+    padding: 12px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .btn:hover { opacity: 0.85; }
+  .footer-note { margin-top: 3rem; font-size: 12px; color: var(--text3); }
+  [data-lang] { display: none; }
+  [data-lang].visible { display: inline; }
+  .tagline [data-lang].visible, .desc [data-lang].visible { display: block; }
+</style>
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<div class="wave-container">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<div class="code">404</div>
+
+<div class="tagline">
+  <span data-lang="es" class="visible">Señal perdida.</span>
+  <span data-lang="en">Signal lost.</span>
+</div>
+
+<p class="desc">
+  <span data-lang="es" class="visible">Esta página no existe, o alguien desconectó el cable.<br>En el mundo del sonido lo llamamos <em>silencio no deseado</em>.<br>En el mundo de internet lo llaman error 404.</span>
+  <span data-lang="en">This page doesn't exist, or someone unplugged the cable.<br>In the sound world we call it <em>unwanted silence</em>.<br>On the internet they call it error 404.</span>
+</p>
+
+<a href="/" class="btn">
+  <span data-lang="es" class="visible">Volver al portfolio</span>
+  <span data-lang="en">Back to portfolio</span>
+</a>
+
+<p class="footer-note">SebaSound — <span data-lang="es" class="visible">Técnico de Sonido</span><span data-lang="en">Sound Engineer</span></p>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(function(el) {
+    el.classList.toggle('visible', el.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+}
+setLang('es');
+</script>
+</body>
+</html>
